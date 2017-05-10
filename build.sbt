@@ -45,17 +45,11 @@ lazy val stormTopology = (project in file("trucking-storm-topology"))
     libraryDependencies ++= Seq(
       "org.apache.storm" % "storm-core" % "1.0.2" % "provided",
       "org.apache.storm" % "storm-kafka" % "1.0.2",
-      "org.apache.nifi" % "nifi-storm-spout" % "1.1.2",
       ("org.apache.kafka" %% "kafka" % "0.10.2.0")
         .exclude("org.apache.zookeeper", "zookeeper")
         .exclude("org.slf4j", "slf4j-log4j12"),
       "com.typesafe" % "config" % "1.3.1",
-      "com.github.pathikrit" %% "better-files" % "2.16.0",
-      "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
-
-      ("com.hortonworks.registries" % "schema-registry-serdes" % "0.0.1.3.0.0.0-55")
-        .exclude("commons-beanutils", "commons-beanutils") // vs itself - commons-beanutils/commons-beanutils-core
-        .exclude("commons-collections", "commons-collections") // vs itself - commons-beanutils/commons-beanutils-core
+      "com.github.pathikrit" %% "better-files" % "2.16.0"
     ),
 
     scalacOptions ++= Seq("-feature", "-Yresolve-term-conflict:package")
