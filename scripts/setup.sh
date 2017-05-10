@@ -22,7 +22,11 @@ scripts/set-hostname.sh $hostname
 #
 
 echo "Setting delete.topic.enable to true via Ambari"
-/var/lib/ambari-server/resources/scripts/configs.py -u $ambariUser -p $ambariPass --action=set --host=$hostname --cluster=$ambariClusterName --config-type=kafka-broker -k delete.topic.enable -v true
+#/var/lib/ambari-server/resources/scripts/configs.py -u $ambariUser -p $ambariPass --action=set --host=$hostname --cluster=$ambariClusterName --config-type=kafka-broker -k delete.topic.enable -v true
+
+# For HDF sandbox's version of Ambari
+/var/lib/ambari-server/resources/scripts/configs.py $ambariUser $ambariPass 8080 http set $hostname $ambariClusterName kafka-broker delete.topic.enable true
+
 
 echo "Restarting Kafka via Ambari"
 curl -u $ambariUser:$ambariPass -i -H 'X-Requested-By: ambari' -X PUT -d '{"RequestInfo": {"context": "Stop Kafka"}, "ServiceInfo": {"state": "INSTALLED"}}' http://$hostname:8080/api/v1/clusters/$ambariClusterName/services/KAFKA
