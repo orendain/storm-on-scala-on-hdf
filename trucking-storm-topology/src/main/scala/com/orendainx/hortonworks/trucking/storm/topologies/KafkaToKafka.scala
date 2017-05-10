@@ -5,7 +5,6 @@ import java.util.Properties
 import com.orendainx.hortonworks.trucking.storm.bolts._
 import com.orendainx.hortonworks.trucking.storm.schemes.BufferToStringScheme
 import com.typesafe.config.{ConfigFactory, Config => TypeConfig}
-import com.typesafe.scalalogging.Logger
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.storm.generated.StormTopology
 import org.apache.storm.kafka.bolt.KafkaBolt

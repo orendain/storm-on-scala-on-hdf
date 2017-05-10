@@ -3,7 +3,6 @@ package com.orendainx.hortonworks.trucking.storm.bolts
 import java.util
 
 import com.orendainx.hortonworks.trucking.commons.models.{EnrichedTruckAndTrafficData, TruckEventTypes, WindowedDriverStats}
-import com.typesafe.scalalogging.Logger
 import org.apache.storm.task.{OutputCollector, TopologyContext}
 import org.apache.storm.topology.OutputFieldsDeclarer
 import org.apache.storm.topology.base.BaseWindowedBolt
