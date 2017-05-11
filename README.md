@@ -1,15 +1,6 @@
 # Trucking IoT Demo 2
 
+Follow the tutorial for this project in either of the following two locations:
 
-```
-git clone https://github.com/orendain/trucking-iot-demo-2
-cd trucking-iot-demo-2
-
-./scripts/build-topology.sh
-./scripts/deploy-topology.sh
-```
-
-Uber jar is generated at:
-```
-./trucking-storm-topology/target/trucking-storm-topology-0.3.2-shaded.jar
-```
+Hortonworks Tutorials: <https://hortonworks.com/hadoop-tutorial/trucking-iot-hdf>
+Github Tutorial: <https://github.com/hortonworks/data-tutorials/tree/master/tutorials/hdf/hdf-2.1/trucking-iot-on-hdf>
