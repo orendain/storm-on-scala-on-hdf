@@ -9,7 +9,6 @@ homepage := Some(url("https://github.com/orendain/trucking-iot"))
 organizationHomepage := Some(url("https://github.com/orendain/trucking-iot"))
 licenses := Seq(("Apache License 2.0", url("https://www.apache.org/licenses/LICENSE-2.0")))
 
-//resolvers += "Hortonworks Nexus" at "http://nexus-private.hortonworks.com/nexus/content/groups/public"
 resolvers += Resolver.sonatypeRepo("snapshots")
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.1",
