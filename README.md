@@ -1,4 +1,4 @@
-# Trucking IoT Demo 2
+# Trucking IoT on HDF
 
 Follow the tutorial for this project in either of the following two locations:
 
