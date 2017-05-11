@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 
-projectDir="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
-cd $projectDir/trucking-iot-helper
-
-# Start web application
-sbt webApplicationBackend/run
+scriptDir="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+$scriptDir/trucking-web-application-backend-0.4.0-SNAPSHOT/bin/trucking-web-application-backend -Dplay.crypto.secret="truckingiotonhdf" -Dplay.server.http.port=15100
