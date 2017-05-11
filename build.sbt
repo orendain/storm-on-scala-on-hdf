@@ -37,11 +37,12 @@ lazy val commonsJVM = (project in file("trucking-commons"))
  * Subproject definition for trucking-storm-topology
  */
 lazy val stormTopology = (project in file("trucking-storm-topology"))
-  .dependsOn(commonsJVM)
+  //.dependsOn(commonsJVM)
   .settings(
     commonSettings,
     name := "trucking-storm-topology",
     resolvers += "Hortonworks Nexus" at "http://nexus-private.hortonworks.com/nexus/content/groups/public",
+    resolvers += Resolver.sonatypeRepo("snapshots"),
     libraryDependencies ++= Seq(
       "org.apache.storm" % "storm-core" % "1.0.2" % "provided",
       "org.apache.storm" % "storm-kafka" % "1.0.2",
@@ -49,7 +50,9 @@ lazy val stormTopology = (project in file("trucking-storm-topology"))
         .exclude("org.apache.zookeeper", "zookeeper")
         .exclude("org.slf4j", "slf4j-log4j12"),
       "com.typesafe" % "config" % "1.3.1",
-      "com.github.pathikrit" %% "better-files" % "2.16.0"
+      "com.github.pathikrit" %% "better-files" % "2.16.0",
+
+      "com.orendainx" %% "trucking-commons" % "0.3.2-SNAPSHOT"
     ),
 
     scalacOptions ++= Seq("-feature", "-Yresolve-term-conflict:package")
