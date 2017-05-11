@@ -4,7 +4,7 @@ version := "1.0.0"
 scalaVersion := "2.11.11"
 
 description := """Trucking IoT on HDF"""
-organization := "com.orendainx"
+organization := "com.orendainx.trucking"
 homepage := Some(url("https://github.com/orendain/trucking-iot"))
 organizationHomepage := Some(url("https://github.com/orendain/trucking-iot"))
 licenses := Seq(("Apache License 2.0", url("https://www.apache.org/licenses/LICENSE-2.0")))
