@@ -12,27 +12,6 @@ lazy val commonSettings = Seq(
 )
 
 
-
-/*
- * Root project definition
- */
-lazy val truckingIot = (project in file("."))
-  .settings(commonSettings)
-
-
-
-/*
- * Subproject definition for trucking-commons
- */
-lazy val commonsJVM = (project in file("trucking-commons"))
-  .settings(
-    commonSettings,
-    name := "trucking-commons",
-    isSnapshot := true // TODO: I forget exactly why this was necessary
-  )
-
-
-
 /*
  * Subproject definition for trucking-storm-topology
  */
