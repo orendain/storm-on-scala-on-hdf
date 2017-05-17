@@ -23,7 +23,7 @@ cd $scriptDir
 
 
 echo "Checking for SBT, installing if missing"
-curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+#curl https://bintray.com/sbt/rpm/rpm | tac | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
 yum -y install sbt-0.13.13.1-1
 
 
