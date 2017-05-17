@@ -9,9 +9,8 @@ ambariClusterName="Sandbox"
 ambariUser="admin"
 ambariPass="admin"
 
-projectDir="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
-cd $projectDir
-
+scriptDir="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
+cd $scriptDir
 
 #echo "Setting delete.topic.enable to true via Ambari"
 #/var/lib/ambari-server/resources/scripts/configs.py $ambariUser $ambariPass 8080 http set $hostname $ambariClusterName kafka-broker delete.topic.enable true
@@ -33,7 +32,7 @@ yum -y install sbt-0.13.13.1-1
 
 
 echo "Extracting included web application"
-tar zxvf trucking-web-application-backend-0.4.0-SNAPSHOT.tgz
+tar zxvf $scriptDir/trucking-web-application-backend-0.4.0-SNAPSHOT.tgz
 
 
 #echo "Building Storm topology"
