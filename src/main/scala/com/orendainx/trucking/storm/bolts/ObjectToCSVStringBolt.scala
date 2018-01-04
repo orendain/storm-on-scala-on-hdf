@@ -1,4 +1,4 @@
-package com.orendainx.hortonworks.trucking.storm.bolts
+package com.orendainx.trucking.storm.bolts
 
 import java.util
 

@@ -1,4 +1,4 @@
-package com.orendainx.hortonworks.trucking.storm.schemes
+package com.orendainx.trucking.storm.schemes
 
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets.UTF_8
