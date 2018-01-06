@@ -2,4 +2,4 @@
 
 projectDir="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
 
-storm jar $projectDir/trucking-storm-topology/target/trucking-storm-topology-0.3.2.jar com.orendainx.hortonworks.trucking.storm.topologies.KafkaToKafka
+storm jar $projectDir/target/scala-2.12/trucking-iot-on-hdf-assembly-1.1.0.jar com.orendainx.trucking.storm.topologies.KafkaToKafka
