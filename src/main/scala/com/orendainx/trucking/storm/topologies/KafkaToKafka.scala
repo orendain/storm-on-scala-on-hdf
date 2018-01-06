@@ -150,7 +150,6 @@ class KafkaToKafka(config: TypeConfig) {
 
     /* Build a bolt and then place in the topology blueprint connected to the "joinedData" stream.
      *
-     * Create 5 tasks for this bolt, to ease the load for any single instance of this bolt.
      * FieldsGrouping partitions the stream of tuples by the fields specified.  Tuples with the same driverId will
      * always go to the same task.  Tuples with different driverIds may go to different tasks.
      */
@@ -179,24 +178,24 @@ class KafkaToKafka(config: TypeConfig) {
 
     /* Build a KafkaBolt.
      *
-     * withTopicSelector() specifies the Kafka topic to drop entries into
+     * withTopicSelector() specifies the Kafka topic to drop entries into.
      *
      * withTupleToKafkaMapper() is passed an instance of FieldNameBasedTupleToKafkaMapper, which tells the bolt
      * which fields of a Tuple the data to pass in is stored as.
      *
-     * withProducerProperties() takes in properties to set itself up with
+     * withProducerProperties() takes in properties to set itself up with.
      */
     val truckingKafkaBolt = new KafkaBolt()
-      .withTopicSelector(new DefaultTopicSelector(config.getString("kafka.joined-data.topic")))
+      .withTopicSelector(new DefaultTopicSelector("trucking_data_joined"))
       .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper("key", "data"))
       .withProducerProperties(kafkaBoltProps)
 
     builder.setBolt("joinedDataToKafka", truckingKafkaBolt, 1).shuffleGrouping("serializedJoinedData")
 
 
-    // Build a KafkaBolt
+    // Build a second KafkaBolt for pushing out driver stats data
     val statsKafkaBolt = new KafkaBolt()
-      .withTopicSelector(new DefaultTopicSelector(config.getString("kafka.driver-stats.topic")))
+      .withTopicSelector(new DefaultTopicSelector("trucking_data_driverstats"))
       .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper("key", "data"))
       .withProducerProperties(kafkaBoltProps)
 
