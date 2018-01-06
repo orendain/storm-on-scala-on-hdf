@@ -21,7 +21,7 @@ libraryDependencies ++= Seq(
     .exclude("org.apache.zookeeper", "zookeeper")
     .exclude("org.slf4j", "slf4j-log4j12"),
 
-  "com.orendainx.trucking" %% "trucking-commons" % "0.5.0"
+  "com.orendainx.trucking" %% "trucking-commons" % "0.5.1"
 )
 
 scalacOptions ++= Seq("-feature", "-Yresolve-term-conflict:package")
