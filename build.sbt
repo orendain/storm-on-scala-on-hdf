@@ -24,4 +24,4 @@ libraryDependencies ++= Seq(
   "com.orendainx.trucking" %% "trucking-commons" % "0.5.1"
 )
 
-scalacOptions ++= Seq("-feature", "-Yresolve-term-conflict:package")
+scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-Yresolve-term-conflict:package")
