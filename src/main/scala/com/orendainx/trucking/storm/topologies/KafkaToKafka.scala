@@ -149,11 +149,8 @@ class KafkaToKafka(config: TypeConfig) {
     val statsBolt = new DataWindowingBolt().withWindow(new BaseWindowedBolt.Count(10))
 
     /* Build a bolt and then place in the topology blueprint connected to the "joinedData" stream.
-     *
-     * FieldsGrouping partitions the stream of tuples by the fields specified.  Tuples with the same driverId will
-     * always go to the same task.  Tuples with different driverIds may go to different tasks.
      */
-    builder.setBolt("windowedDriverStats", statsBolt, 1).fieldsGrouping("joinedData", new Fields("driverId"))
+    builder.setBolt("windowedDriverStats", statsBolt, 1).shuffleGrouping("joinedData")
 
 
 
