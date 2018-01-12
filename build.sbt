@@ -1,4 +1,4 @@
-name := "trucking-iot-on-hdf"
+name := "trucking-iot-demo-storm-on-scala"
 
 version := "1.1.0"
 scalaVersion := "2.12.4"
@@ -21,7 +21,7 @@ libraryDependencies ++= Seq(
     .exclude("org.apache.zookeeper", "zookeeper")
     .exclude("org.slf4j", "slf4j-log4j12"),
 
-  "com.orendainx.trucking" %% "trucking-commons" % "0.5.1"
+  "com.orendainx.trucking" %% "trucking-commons" % "0.5.2"
 )
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-Yresolve-term-conflict:package")
