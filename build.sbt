@@ -10,6 +10,8 @@ organizationHomepage := Some(url("https://github.com/orendain/trucking-iot"))
 licenses := Seq(("Apache License 2.0", url("https://www.apache.org/licenses/LICENSE-2.0")))
 
 resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers += "clojars" at "https://clojars.org/repo"
+
 libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.1",
   "com.github.pathikrit" %% "better-files" % "3.4.0",
