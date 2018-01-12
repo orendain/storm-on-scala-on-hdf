@@ -7,4 +7,4 @@ cd $projectDir
 sbt assembly
 
 # Deploy built topology
-storm jar $projectDir/target/scala-2.12/trucking-iot-storm-on-scala-assembly-1.1.0.jar com.orendainx.trucking.storm.topologies.KafkaToKafka
+storm jar $projectDir/target/scala-2.12/trucking-iot-demo-storm-on-scala-assembly-1.1.0.jar com.orendainx.trucking.storm.topologies.KafkaToKafka
