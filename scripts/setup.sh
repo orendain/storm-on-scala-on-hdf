@@ -12,10 +12,8 @@ git clone https://github.com/orendain/trucking-iot trucking-iot-helper
 cd trucking-iot-helper
 git checkout dev
 
-
 # Change hostnames to match HDF sandbox
-scripts/set-hostname.sh $hostname
-
+#scripts/set-hostname.sh $hostname
 
 #
 # Note: This script assumes that Ambari is up and running at this point.
