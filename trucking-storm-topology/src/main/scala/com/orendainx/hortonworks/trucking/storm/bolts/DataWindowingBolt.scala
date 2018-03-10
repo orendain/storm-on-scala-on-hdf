@@ -18,7 +18,6 @@ import scala.collection.JavaConverters._
   */
 class DataWindowingBolt extends BaseWindowedBolt {
 
-  private lazy val log = Logger(this.getClass)
   private var outputCollector: OutputCollector = _
 
   override def prepare(stormConf: util.Map[_, _], context: TopologyContext, collector: OutputCollector): Unit = {

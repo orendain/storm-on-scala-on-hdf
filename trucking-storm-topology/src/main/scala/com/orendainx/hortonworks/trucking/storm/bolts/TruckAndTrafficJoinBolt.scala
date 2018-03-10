@@ -21,7 +21,6 @@ import scala.language.implicitConversions
   */
 class TruckAndTrafficJoinBolt() extends BaseWindowedBolt {
 
-  private lazy val log = Logger(this.getClass)
   private var outputCollector: OutputCollector = _
 
   override def prepare(stormConf: util.Map[_, _], context: TopologyContext, collector: OutputCollector): Unit = {
