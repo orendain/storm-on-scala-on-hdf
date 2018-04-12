@@ -17,11 +17,8 @@ libraryDependencies ++= Seq(
   "com.github.pathikrit" %% "better-files" % "3.4.0",
 
   "org.apache.storm" % "storm-core" % "1.1.1" % "provided",
-  //"org.apache.storm" % "storm-kafka" % "1.1.0",
   "org.apache.storm" % "storm-kafka-client" % "1.1.1",
-  ("org.apache.kafka" %% "kafka" % "1.0.0"),
-    //.exclude("org.apache.zookeeper", "zookeeper")
-    //.exclude("org.slf4j", "slf4j-log4j12"),
+  "org.apache.kafka" %% "kafka" % "1.0.0",
 
   "com.orendainx.trucking" %% "trucking-commons" % "0.5.4"
 )
