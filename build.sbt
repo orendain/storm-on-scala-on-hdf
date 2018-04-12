@@ -1,6 +1,6 @@
-name := "trucking-iot-demo-storm-on-scala"
+name := "storm-on-scala-on-hdf"
 
-version := "1.1.0"
+version := "1.1.1"
 scalaVersion := "2.12.4"
 
 description := """Trucking IoT on HDF"""
@@ -16,14 +16,14 @@ libraryDependencies ++= Seq(
   "com.typesafe" % "config" % "1.3.1",
   "com.github.pathikrit" %% "better-files" % "3.4.0",
 
-  "org.apache.storm" % "storm-core" % "1.1.0" % "provided",
+  "org.apache.storm" % "storm-core" % "1.1.1" % "provided",
   //"org.apache.storm" % "storm-kafka" % "1.1.0",
-  "org.apache.storm" % "storm-kafka-client" % "1.1.0",
-  ("org.apache.kafka" %% "kafka" % "0.10.2.1")
-    .exclude("org.apache.zookeeper", "zookeeper")
-    .exclude("org.slf4j", "slf4j-log4j12"),
+  "org.apache.storm" % "storm-kafka-client" % "1.1.1",
+  ("org.apache.kafka" %% "kafka" % "1.0.0"),
+    //.exclude("org.apache.zookeeper", "zookeeper")
+    //.exclude("org.slf4j", "slf4j-log4j12"),
 
-  "com.orendainx.trucking" %% "trucking-commons" % "0.5.2"
+  "com.orendainx.trucking" %% "trucking-commons" % "0.5.4"
 )
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-Yresolve-term-conflict:package")

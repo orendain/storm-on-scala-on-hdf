@@ -77,7 +77,7 @@ class KafkaToKafka(config: TypeConfig) {
       def apply(record: ConsumerRecord[String, String]) = new Values("EnrichedTruckData", record.value())
     }
 
-    val truckSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_truck")
+    val truckSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_truck_enriched")
       .setRecordTranslator(truckRecordTranslator, new Fields("dataType", "data"))
       .setFirstPollOffsetStrategy(KafkaSpoutConfig.FirstPollOffsetStrategy.EARLIEST)
       .setGroupId("g")
