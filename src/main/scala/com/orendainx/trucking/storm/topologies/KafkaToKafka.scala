@@ -77,7 +77,7 @@ class KafkaToKafka(config: TypeConfig) {
       def apply(record: ConsumerRecord[String, String]) = new Values("EnrichedTruckData", record.value())
     }
 
-    val truckSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_truck_enriched")
+    val truckSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_truck_enriched_raw")
       .setRecordTranslator(truckRecordTranslator, new Fields("dataType", "data"))
       .setFirstPollOffsetStrategy(KafkaSpoutConfig.FirstPollOffsetStrategy.EARLIEST)
       .setGroupId("g")
@@ -93,7 +93,7 @@ class KafkaToKafka(config: TypeConfig) {
       def apply(record: ConsumerRecord[String, String]) = new Values("TrafficData", record.value())
     }
 
-    val trafficSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_traffic")
+    val trafficSpoutConfig: KafkaSpoutConfig[String, String] = KafkaSpoutConfig.builder(config.getString("kafka.bootstrap-servers"), "trucking_data_traffic_raw")
       .setRecordTranslator(trafficRecordTranslator, new Fields("dataType", "data"))
       .setFirstPollOffsetStrategy(KafkaSpoutConfig.FirstPollOffsetStrategy.EARLIEST)
       .setGroupId("g")
@@ -183,7 +183,7 @@ class KafkaToKafka(config: TypeConfig) {
      * withProducerProperties() takes in properties to set itself up with.
      */
     val truckingKafkaBolt = new KafkaBolt()
-      .withTopicSelector(new DefaultTopicSelector("trucking_data_joined"))
+      .withTopicSelector(new DefaultTopicSelector("trucking_data_joined_raw"))
       .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper("key", "data"))
       .withProducerProperties(kafkaBoltProps)
 
@@ -192,7 +192,7 @@ class KafkaToKafka(config: TypeConfig) {
 
     // Build a second KafkaBolt for pushing out driver stats data
     val statsKafkaBolt = new KafkaBolt()
-      .withTopicSelector(new DefaultTopicSelector("trucking_data_driverstats"))
+      .withTopicSelector(new DefaultTopicSelector("trucking_data_driverstats_raw"))
       .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper("key", "data"))
       .withProducerProperties(kafkaBoltProps)
 
